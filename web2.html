@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niké Janochová</title>
+    <link rel="stylesheet" href="portfolioweb2.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body onload="jakdlouhotrvaloader()">
+    <div class="gooey" id="loader">
+        <span class="dot"></span>
+        <div class="dots">
+            <span class="span"></span>
+            <span class="span"></span>
+            <span class="span"></span>
+        </div>
+    </div>
+
+    <span style="display:none;" id="home" class="homepage">
+        <a href="index2.html"><img src="./obr/AS2.png" alt="zpět" class="logo"></a>
+
+        <div class="container">
+            <div class="circle-big"><img src="./obr/B1.png"></div>
+            <div class="circle-small box-1">
+                <h1>Blog</h1>
+                <p>Práce s flexboxy, rámování, <br>použití lorem ipsum</p>
+            </div>
+            <br>
+            <div class="circle-big"><img src="./obr/B2.png"></div>
+            <div class="circle-small box-1">
+                <h1>Počasí</h1>
+                <p>Práce podle zadání, stylování <br>nadpisů, seznamů, odkazů</p>
+            </div>
+            <br>
+            <div class="circle-big"><img src="./obr/B3.png"></div>
+            <div class="circle-small box-2">
+                <h1>Pozvánka na <br>výstavu</h1>
+                <p>Stylování tagu div –⁠ <br>poloprůhledné pozadí, <br>stylování pomocí borderů</p>
+            </div>
+            <br>
+            <div class="circle-big"><img src="./obr/B4.png"></div>
+            <div class="circle-small box-3">
+                <h1>Nejkrásnější <br>města v jižních Čechách</h1>
+                <p>Procvičování stylování, <br>vícestrákový web</p>
+            </div>
+            <br>
+            <div class="circle-big"><img src="./obr/B5.png"></div>
+            <div class="circle-small box-2">
+                <h1>Happy <br>bakery</h1>
+                <p>Přidání mapy do webu, práce <br>s flexboxy, animací, tovrba <br>a stylování formuláře</p>
+            </div>
+        </div>
+
+
+
+        <div id="mouse-circle" class="mouse-circle small"></div>
+
+
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', () => {
+                let mousePosX = 0,
+                    mousePosY = 0,
+                    mouseCircle = document.getElementById('mouse-circle');
+
+                document.onmousemove = (e) => {
+                    mousePosX = e.pageX;
+                    mousePosY = e.pageY;
+                }
+
+                let delay = 5,
+                    revisedMousePosX = 0,
+                    revisedMousePosY = 0;
+
+                function delayMouseFollow() {
+                    requestAnimationFrame(delayMouseFollow);
+
+                    revisedMousePosX += (mousePosX - revisedMousePosX) / delay;
+                    revisedMousePosY += (mousePosY - revisedMousePosY) / delay;
+
+                    mouseCircle.style.top = revisedMousePosY + 'px';
+                    mouseCircle.style.left = revisedMousePosX + 'px';
+                }
+                delayMouseFollow();
+            });
+        </script>
+    </span>
+    <script>
+        var cas;
+        function jakdlouhotrvaloader() {
+            cas = setTimeout(showPage, 1000);
+        }
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("home").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
